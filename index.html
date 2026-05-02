@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Character encoding for international text support -->
+    <meta charset="UTF-8" />
+    
+    <!-- Makes the site responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- The tab title shown in the browser -->
+    <title>Hello World | MERN Bootcamp</title>
+    
+    <!-- Link to our CSS stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Main container for all page content -->
+    <div class="container">
+      
+      <!-- Header section with name and title -->
+      <header class="hero">
+        <h1 class="greeting">Hello, World! 👋</h1>
+        <p class="subtitle">I'm learning the MERN Stack</p>
+        <p class="author">Built by <strong>sarhad3D</strong></p>
+      </header>
+
+      <!-- Cards section showing what I'm learning -->
+      <section class="learning-section">
+        <h2>My Learning Journey</h2>
+        <div class="cards">
+
+          <!-- Card 1 -->
+          <div class="card">
+            <span class="card-icon">⚛️</span>
+            <h3>React</h3>
+            <p>Building interactive user interfaces</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <span class="card-icon">🟢</span>
+            <h3>Node.js</h3>
+            <p>Running JavaScript on the server</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card">
+            <span class="card-icon">🚂</span>
+            <h3>Express</h3>
+            <p>Building fast, scalable APIs</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card">
+            <span class="card-icon">🍃</span>
+            <h3>MongoDB</h3>
+            <p>Storing data in flexible documents</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer with the date this was created -->
+      <footer>
+        <p>Day 1 of 84 — Started <span id="start-date"></span></p>
+      </footer>
+
+    </div>
+
+    <!-- Link to our JavaScript file — placed at bottom so HTML loads first -->
+    <script src="script.js"></script>
+  </body>
+</html>

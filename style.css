@@ -1,0 +1,153 @@
+/* ============================================
+   GLOBAL RESET & BASE STYLES
+   Why: Browsers have built-in styles that differ
+   across Chrome, Firefox, Safari. We reset them
+   so our design looks the same everywhere.
+============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Padding doesn't add to element width */
+}
+
+/* CSS Custom Properties (Variables) — easy to change your color scheme */
+:root {
+  --primary-color: #3b82f6;   /* Blue */
+  --secondary-color: #1e40af; /* Dark blue */
+  --text-dark: #1f2937;       /* Near-black for body text */
+  --text-light: #6b7280;      /* Gray for secondary text */
+  --bg-light: #f9fafb;        /* Off-white background */
+  --card-bg: #ffffff;         /* White cards */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --border-radius: 12px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6; /* Makes text easier to read */
+}
+
+/* ============================================
+   LAYOUT CONTAINER
+   Centers content and limits max width
+============================================ */
+.container {
+  max-width: 900px;      /* Won't stretch too wide on large monitors */
+  margin: 0 auto;        /* Centers horizontally */
+  padding: 40px 20px;    /* Top/bottom 40px, left/right 20px */
+}
+
+/* ============================================
+   HERO / HEADER SECTION
+============================================ */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: var(--border-radius);
+  color: white;
+  margin-bottom: 40px;
+}
+
+.greeting {
+  font-size: 3rem;    /* Large headline */
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;       /* Slightly transparent for visual hierarchy */
+  margin-bottom: 8px;
+}
+
+.author {
+  font-size: 1rem;
+  opacity: 0.75;
+}
+
+/* ============================================
+   LEARNING SECTION
+============================================ */
+.learning-section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 28px;
+  color: var(--text-dark);
+}
+
+/* CSS Grid — the modern way to create card layouts */
+.cards {
+  display: grid;
+  
+  /* 
+    auto-fit: creates as many columns as fit
+    minmax(200px, 1fr): each column is min 200px, max equal share
+    This makes the layout automatically responsive!
+  */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px; /* Space between cards */
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 28px 20px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--shadow);
+  
+  /* Smooth animation on hover */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Lifts card when you hover over it */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  display: block;    /* Puts icon on its own line */
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+footer {
+  text-align: center;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   Adjusts styles for small screens (phones)
+============================================ */
+@media (max-width: 480px) {
+  .greeting {
+    font-size: 2rem; /* Smaller on phones */
+  }
+  
+  .hero {
+    padding: 40px 16px;
+  }
+}

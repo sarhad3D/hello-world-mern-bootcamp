@@ -1,0 +1,18 @@
+# Files and folders Git should NOT track
+
+# macOS system files (created automatically, not needed)
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Node.js dependencies (we'll use this later)
+# These are installed fresh from package.json, not stored in Git
+node_modules/
+
+# Environment variables (passwords, API keys — NEVER commit these)
+.env
+.env.local
+
+# VS Code settings (personal to each developer)
+.vscode/settings.json
