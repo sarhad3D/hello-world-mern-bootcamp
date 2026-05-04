@@ -151,3 +151,74 @@ footer {
     padding: 40px 16px;
   }
 }
+/* ============================================
+   SKILLS PROGRESS SECTION
+   Added: Week 1 Day 2 — feature/add-skills-section
+============================================ */
+.skills-section {
+  margin-top: 40px;
+}
+
+.skills-section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 28px;
+  color: var(--text-dark);
+}
+
+.skills-list {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between each skill item */
+}
+
+.skill-item {
+  width: 100%;
+}
+
+/* Row containing skill name and percentage */
+.skill-header {
+  display: flex;
+  justify-content: space-between; /* Name on left, percent on right */
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.skill-percent {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* The gray track (background of the bar) */
+.skill-bar {
+  height: 10px;
+  background-color: #e5e7eb;
+  border-radius: 999px; /* Pill shape */
+  overflow: hidden;     /* Clips the fill bar to stay inside the track */
+}
+
+/* The colored fill — starts at width 0 and animates to target */
+.skill-fill {
+  height: 100%;
+  width: 0%;            /* Start at 0 — JavaScript will animate this */
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 999px;
+  
+  /* 
+    CSS transition: animates the 'width' property
+    1s = duration, ease-out = starts fast, slows at end
+    The delay (set by JS) staggers each bar's animation
+  */
+  transition: width 1s ease-out;
+}
