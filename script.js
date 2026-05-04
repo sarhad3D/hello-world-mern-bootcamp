@@ -27,3 +27,48 @@ startDateElement.textContent = formattedDate;
 console.log('🚀 Hello World project loaded successfully!');
 console.log(`📅 Bootcamp started: ${formattedDate}`);
 console.log('💪 Let\'s build something amazing!');
+// ============================================
+// SKILLS PROGRESS BAR ANIMATION
+// Added: Week 1 Day 2
+// ============================================
+
+// querySelectorAll returns a NodeList of ALL elements matching the selector
+// It's like getElementById but for multiple elements using CSS selectors
+const skillBars = document.querySelectorAll('.skill-fill');
+
+// Why IntersectionObserver instead of just setting width immediately?
+// IntersectionObserver fires when an element enters the viewport (visible area).
+// This means the animation only plays when the user scrolls to see it —
+// a common UX pattern on portfolio sites.
+const observer = new IntersectionObserver((entries) => {
+  
+  // entries is an array of all observed elements that changed visibility
+  entries.forEach((entry) => {
+    
+    // entry.isIntersecting is true when the element is visible on screen
+    if (entry.isIntersecting) {
+      const bar = entry.target;
+      
+      // data-width is a custom HTML attribute we set on each .skill-fill div
+      // dataset.width reads the value of data-width
+      const targetWidth = bar.dataset.width;
+      
+      // Setting the width triggers the CSS transition animation
+      bar.style.width = `${targetWidth}%`;
+      
+      // Stop observing once animated — we only want to animate once
+      observer.unobserve(bar);
+    }
+  });
+  
+}, {
+  // threshold: 0.1 means "fire when 10% of the element is visible"
+  threshold: 0.1
+});
+
+// Attach the observer to each skill bar
+skillBars.forEach((bar) => {
+  observer.observe(bar);
+});
+
+console.log(`📊 Tracking ${skillBars.length} skill progress bars`);
